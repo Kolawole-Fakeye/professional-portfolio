@@ -4,140 +4,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kolawole Afolabi Fakeye | Principal Engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --bg: #050505; --text: #ffffff; --accent: #3b82f6; --muted: #888888; }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+        :root { --bg: #0a0a0a; --card: #141414; --accent: #3b82f6; --text: #ffffff; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); margin: 0; line-height: 1.5; }
 
-        /* Sleek Navigation */
-        nav {
-            position: fixed; top: 0; width: 100%; z-index: 1000;
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 30px 8%; background: rgba(5,5,5,0.8); backdrop-filter: blur(20px);
+        /* Modern Glass Nav */
+        nav { 
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+            width: 90%; max-width: 1000px; background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1);
+            padding: 15px 30px; border-radius: 50px; display: flex; 
+            justify-content: space-between; align-items: center; z-index: 1000;
         }
-        .logo { font-weight: 900; letter-spacing: -1px; font-size: 1.2rem; }
-        .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.8rem; font-weight: 600; margin-left: 30px; transition: 0.3s; text-transform: uppercase; letter-spacing: 2px; }
+        .nav-links a { color: #aaa; text-decoration: none; font-size: 0.8rem; font-weight: 600; margin-left: 20px; transition: 0.3s; }
         .nav-links a:hover { color: var(--text); }
 
-        /* Hero: The "New York" Aesthetic */
-        section.hero {
-            height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 0 10%;
-            border-bottom: 1px solid #222;
+        /* Bento Grid Hero */
+        .wrapper { max-width: 1100px; margin: 120px auto 50px; padding: 0 20px; }
+        .bento { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 200px; gap: 20px; }
+        
+        .card { 
+            background: var(--card); border-radius: 24px; padding: 30px; 
+            border: 1px solid #222; position: relative; overflow: hidden;
+            transition: 0.4s cubic-bezier(0.19, 1, 0.22, 1);
         }
-        .hero h1 { font-size: clamp(3.5rem, 12vw, 8rem); font-weight: 900; line-height: 0.85; letter-spacing: -0.06em; margin-bottom: 20px; }
-        .hero p { font-size: 1.2rem; color: var(--muted); max-width: 500px; font-weight: 300; letter-spacing: 0.05em; }
+        .card:hover { border-color: var(--accent); box-shadow: 0 0 30px rgba(59, 130, 246, 0.15); }
 
-        .container { padding: 120px 10%; }
-        .section-header { font-size: 0.7rem; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 0.3em; margin-bottom: 20px; display: block; }
-        
-        /* Grid Layouts */
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
-        
-        .exp-box { border-top: 1px solid #222; padding-top: 30px; margin-bottom: 50px; }
-        .exp-box h3 { font-size: 2rem; font-weight: 700; margin-bottom: 10px; }
-        .exp-box span { color: var(--accent); font-weight: 700; font-size: 0.8rem; }
-        .exp-box p { color: var(--muted); margin-top: 15px; font-size: 1.1rem; }
+        .span-2 { grid-column: span 2; }
+        .span-3 { grid-column: span 3; }
+        .row-2 { grid-row: span 2; }
 
-        /* Project Cards */
-        .project-card {
-            background: #0f0f0f; padding: 60px; border-radius: 4px; border: 1px solid #1a1a1a;
-            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        h1 { font-size: 3rem; margin: 0; }
+        p { color: #888; margin-top: 10px; }
+
+        /* Logo/Links Styling */
+        .socials { display: flex; gap: 15px; margin-top: 20px; }
+        .social-btn { 
+            background: #222; padding: 12px 20px; border-radius: 12px; 
+            color: white; text-decoration: none; font-size: 0.9rem; font-weight: 600;
+            display: flex; align-items: center; gap: 10px;
         }
-        .project-card:hover { border-color: var(--accent); transform: translateY(-10px); background: #111; }
-        .project-card h4 { font-size: 2rem; margin-bottom: 20px; }
+
+        .tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); font-weight: 800; }
         
-        .philosophy-section { background: #fff; color: #000; padding: 150px 10%; }
-        .philosophy-section h2 { font-size: 4rem; font-weight: 900; letter-spacing: -0.04em; margin-bottom: 30px; }
-
-        footer { padding: 60px 10%; background: #000; border-top: 1px solid #111; text-align: center; color: #444; font-size: 0.8rem; letter-spacing: 2px; }
-
-        @media (max-width: 900px) { .grid { grid-template-columns: 1fr; gap: 40px; } .hero h1 { font-size: 4rem; } }
+        /* Footer */
+        .footer-bento { text-align: center; color: #444; margin-top: 50px; padding-bottom: 50px; }
     </style>
 </head>
 <body>
 
 <nav>
-    <div class="logo">K. FAKEYE</div>
+    <div style="font-weight: 800; letter-spacing: -1px;">KAF.ENGINEER</div>
     <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#experience">History</a>
-        <a href="#projects">Work</a>
-        <a href="#philosophy">Core</a>
+        <a href="#projects">Projects</a>
+        <a href="#exp">History</a>
+        <a href="#contact">Contact</a>
     </div>
 </nav>
 
-<section class="hero">
-    <span class="section-header">Based in Agbara, Lagos</span>
-    <h1>Systems<br>Integration<br>Architect.</h1>
-    <p>Senior Engineer specializing in infrastructure lifecycle, network integrity, and advanced data storytelling.</p>
-</section>
-
-<section class="container" id="about">
-    <div class="grid">
-        <div>
-            <span class="section-header">Professional Identity</span>
-            <h2 style="font-size: 3rem; font-weight: 700; line-height: 1;">20 years of Engineering Excellence.</h2>
+<div class="wrapper">
+    <div class="bento">
+        <div class="card span-2 row-2">
+            <span class="tag">Principal Engineer</span>
+            <h1>Kolawole<br>Afolabi Fakeye</h1>
+            <p>20 years of expertise in systems infrastructure, hardware deployment, and enterprise data solutions.</p>
+            <div class="socials">
+                <a href="#" class="social-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="#" class="social-btn"><i class="fab fa-github"></i> GitHub</a>
+            </div>
         </div>
-        <div>
-            <p style="color: var(--muted); font-size: 1.2rem;">With a foundation built in 2004 at LASU, my career has evolved from pure hardware engineering at <strong>Digital Works (2006)</strong> to high-stakes administrative coordination and entrepreneurial leadership. Today, I bridge the gap between technical infrastructure and data-driven decision making.</p>
+
+        <div class="card span-2">
+            <span class="tag">Philosophy</span>
+            <h3>Africapitalism</h3>
+            <p>Wealth creation through sustainable, high-impact technical infrastructure.</p>
+        </div>
+
+        <div class="card">
+            <span class="tag">Education</span>
+            <h3>2004</h3>
+            <p>B.Sc. Electronic & Computer Engineering</p>
+        </div>
+        <div class="card">
+            <span class="tag">Status</span>
+            <h3>2026</h3>
+            <p>Data Analytics & Systems Strategy</p>
+        </div>
+
+        <div class="card span-3" id="projects">
+            <span class="tag">Case Studies</span>
+            <div style="display: flex; gap: 20px;">
+                <div><h4>NRS Analysis</h4><p>Revenue Frameworks</p></div>
+                <div><h4>Maersk</h4><p>Logistics Systems</p></div>
+                <div><h4>Media Hub</h4><p>Live Streaming</p></div>
+            </div>
+        </div>
+
+        <div class="card" id="exp">
+            <span class="tag">Experience</span>
+            <h3>15+ Years</h3>
+            <p>From Digital Works to Enterprise Strategy.</p>
         </div>
     </div>
-</section>
+</div>
 
-<section class="container" id="experience">
-    <span class="section-header">The Timeline</span>
-    <div class="grid">
-        <div class="exp-box">
-            <span>2025 — ACTIVE</span>
-            <h3>Data Analytics</h3>
-            <p>Mastering SQL, Python, and advanced Excel to transform raw metrics into operational intelligence.</p>
-        </div>
-        <div class="exp-box">
-            <span>2020 — 2025</span>
-            <h3>Business Ops</h3>
-            <p>Managed complex retail logistics and enterprise-level business operations.</p>
-        </div>
-        <div class="exp-box">
-            <span>PRE-2020</span>
-            <h3>State Service</h3>
-            <p>PA to the Director General, overseeing strategic government project lifecycles.</p>
-        </div>
-        <div class="exp-box">
-            <span>2004 — 2006</span>
-            <h3>The Start</h3>
-            <p>B.Sc. Electronic & Computer Engineering. Systems deployment at Digital Works.</p>
-        </div>
-    </div>
-</section>
-
-<section class="container" id="projects">
-    <span class="section-header">Featured Case Studies</span>
-    <div class="grid">
-        <div class="project-card">
-            <h4>NRS Revenue Framework</h4>
-            <p style="color: var(--muted);">Data-driven fiscal reporting and revenue optimization systems.</p>
-        </div>
-        <div class="project-card">
-            <h4>Maersk Supply Chain</h4>
-            <p style="color: var(--muted);">Visualizing global logistics data for maximum operational clarity.</p>
-        </div>
-        <div class="project-card">
-            <h4>Media Hub Station</h4>
-            <p style="color: var(--muted);">Conceptualizing 15-camera live broadcast infrastructure for social impact.</p>
-        </div>
-    </div>
-</section>
-
-<section class="philosophy-section" id="philosophy">
-    <span class="section-header" style="color: #666;">The Mindset</span>
-    <h2>Africapitalism.</h2>
-    <p style="font-size: 1.5rem; max-width: 700px;">The belief that Africa’s private sector can and must be the primary driver of the continent’s social and economic transformation. Wealth creation through technical integrity.</p>
-</section>
-
-<footer>
-    © 2026 KOLAWOLE AFOLABI FAKEYE | SYSTEMS ENGINEER
-</footer>
+<div class="footer-bento">
+    <p>© 2026 KOLAWOLE AFOLABI FAKEYE. ENGINEERED IN LAGOS.</p>
+</div>
 
 </body>
 </html>
